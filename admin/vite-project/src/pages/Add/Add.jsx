@@ -8,9 +8,9 @@ const Add = ({url}) => {
     const [image,setImage] = useState(false)
     const [data, setData] = useState({
         name: "",
-        description: "",
+        description: "Food provides essential nutrients for overall health and well-being.",
         price: "",
-        category: "Salad"
+        category: "Cake"
     })
 
     const onChangeHandler = (event)=>{
@@ -28,12 +28,12 @@ const Add = ({url}) => {
         formData.append("category",data.category)
         formData.append("image",image)
         const response = await axios.post(`${url}/api/food/add`,formData);
-        if (response.data.succes) {
+        if (response.data.success) {
             setData({
                 name: "",
-            description: "",
+            description: "Food provides essential nutrients for overall health and well-being.",
             price: "",
-            category: "Salad"
+            category: "Noodles"
             })
             setImage(false)
             toast.success(response.data.message)
